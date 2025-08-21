@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
+  name  String
+}
+
+model World {
+  name String @id
+  continent String
+  area Int
+  population Int
+  gdp BigInt
+}
+
+model Products {
+  product_id Int @id
+  low_fats low_fats
+  recyclabe recyclabe 
+}
+
+enum low_fats {
+  Y
+  N
+}
+
+enum recyclabe {
+  Y
+  N
+}
